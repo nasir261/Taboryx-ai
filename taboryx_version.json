@@ -3,6 +3,6 @@
   "title": "Initial Release",
   "release_date": "29 July 2026",
   "download_url": "",
-  "filename": "MediStockSetup_0.1.0.exe",
+  "filename": "TaboryxSetup_0.1.0.exe",
   "release_notes": "- Full inventory management with barcode and QR scanning\n- Role-based login for all clinical staff\n- Dashboard with live stock value, expiry alerts, and usage trends\n- AI Insights, AI Chat Assistant, and smart purchasing recommendations\n- Clinical room audits, stock transfers, and batch tracking\n- Mobile web companion accessible over local Wi-Fi\n- Admin-only Wi-Fi connection manager\n- In-app software update checker with one-click install\n- Backup and restore, session timeout, audit log\n- PDF, Excel, and CSV export for all reports"
 }
