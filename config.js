@@ -24,7 +24,7 @@ const SITE_CONFIG = {
   downloadLabel: "Download for Windows",
 
   // ── Contact / support ─────────────────────────────────────────────
-  supportEmail:  "support@example.com",     // Replace with your email
+  supportEmail:  "nasiralimd@hotmail.com",
   githubUrl:     "https://github.com/nasir261/taboryx-ai",
 
   // ── Colours (CSS custom properties) ──────────────────────────────
