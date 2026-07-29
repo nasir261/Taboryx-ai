@@ -9,180 +9,247 @@
   <script src="config.js"></script>
 </head>
 <body>
+  <main class="container mobile-shell">
+   <section class="card intro-card">
+     <p class="eyebrow">Mobile companion</p>
+     <h1 id="hero-title">Website temporarily unavailable</h1>
+     <p id="hero-desc">This website is temporarily unavailable while trademark registration is being completed.</p>
+     <p class="support-text">You can still review the mobile pharmacy setup flow below and test it directly from a phone-sized screen.</p>
+   </section>
 
-<!-- ── Navigation ── -->
-<nav>
-  <div class="nav-inner">
-    <span class="nav-logo" id="nav-logo">Loading...</span>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="updates.html">Updates</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#download">Download</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+   <section class="card setup-card">
+     <div class="setup-header">
+       <div>
+         <p class="eyebrow">Pharmacy workflow</p>
+         <h2>Mobile pharmacy setup</h2>
+         <p>Try the guided room-scan, walk-around, shelf-labeling, and storage-type workflow from your phone.</p>
+       </div>
+       <button id="toggle-setup" class="btn btn-primary">Open setup</button>
+     </div>
 
-<!-- ── Hero ── -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-badge">Windows Desktop Application</div>
-    <h1 id="hero-title">Healthcare Inventory<br /><span id="hero-accent">Management System</span></h1>
-    <p id="hero-desc"></p>
-    <a id="hero-download-btn" href="#download" class="btn btn-primary">Download for Windows</a>
-    <a href="updates.html" class="btn btn-outline">View Updates</a>
-  </div>
-</section>
+     <div id="setup-panel" class="setup-panel" hidden>
+       <div class="workflow-actions" id="workflow-actions"></div>
 
-<!-- ── Features ── -->
-<section class="features" id="features">
-  <div class="container">
-    <h2>Everything your clinical team needs</h2>
-    <div class="feature-grid">
+       <div class="step-box" id="step-content"></div>
 
-      <div class="feature-card">
-        <div class="icon">💊</div>
-        <h3>Medicine & Stock Control</h3>
-        <p>Track every item — medicines, consumables, equipment — with full batch and expiry management.</p>
-      </div>
+       <div class="setup-footer">
+         <button class="btn btn-outline" id="prev-step">Previous</button>
+         <button class="btn btn-primary" id="next-step">Next</button>
+       </div>
+     </div>
+   </section>
+  </main>
 
-      <div class="feature-card">
-        <div class="icon">🔔</div>
-        <h3>Smart Notifications</h3>
-        <p>Automatic alerts for low stock, expiring items, overdue audits, and new software updates.</p>
-      </div>
+  <script>
+   document.getElementById("page-title").textContent = SITE_CONFIG.appName + " — " + SITE_CONFIG.appTagline;
+   document.getElementById("hero-title").textContent = SITE_CONFIG.appName;
+   document.getElementById("hero-desc").textContent = SITE_CONFIG.appDescription;
 
-      <div class="feature-card">
-        <div class="icon">🤖</div>
-        <h3>AI Insights &amp; Chat</h3>
-        <p>Built-in AI assistant for usage forecasting, expiry risk, smart purchasing recommendations, and natural-language queries.</p>
-      </div>
+   const workflowActions = [
+     { label: "Scan room", step: 0, hint: "Start the room scan" },
+     { label: "Walk around", step: 1, hint: "Capture each zone" },
+     { label: "Label shelves", step: 1, hint: "Assign labels" },
+     { label: "Choose storage", step: 1, hint: "Mark fridges and cabinets" },
+     { label: "Review & save", step: 2, hint: "Save the layout" }
+   ];
 
-      <div class="feature-card">
-        <div class="icon">📱</div>
-        <h3>Mobile Web Companion</h3>
-        <p>Access inventory from any phone or tablet on the same Wi-Fi network — no app install needed.</p>
-      </div>
+   const state = {
+     currentStep: 0,
+     roomName: "",
+     notes: "",
+     locations: [],
+     savedMessage: ""
+   };
 
-      <div class="feature-card">
-        <div class="icon">🏥</div>
-        <h3>Clinical Room Audits</h3>
-        <p>Monthly audit checklists per room, barcode scanning, and automatic compliance reporting.</p>
-      </div>
+   const workflowActionsEl = document.getElementById("workflow-actions");
+   const setupPanel = document.getElementById("setup-panel");
+   const stepContent = document.getElementById("step-content");
+   const prevButton = document.getElementById("prev-step");
+   const nextButton = document.getElementById("next-step");
+   const toggleButton = document.getElementById("toggle-setup");
 
-      <div class="feature-card">
-        <div class="icon">📊</div>
-        <h3>Reports &amp; Purchasing</h3>
-        <p>Inventory valuation, usage trends, expiry reports, and AI-powered purchasing recommendations — exportable to PDF, Excel, and CSV.</p>
-      </div>
+   function loadState() {
+     try {
+       const saved = localStorage.getItem("mobile-pharmacy-setup");
+       if (!saved) return;
+       const parsed = JSON.parse(saved);
+       state.roomName = parsed.roomName || "";
+       state.notes = parsed.notes || "";
+       state.locations = parsed.locations || [];
+       state.savedMessage = parsed.savedMessage || "";
+     } catch (error) {
+       console.warn("Unable to load saved setup", error);
+     }
+   }
 
-      <div class="feature-card">
-        <div class="icon">🔒</div>
-        <h3>Role-Based Security</h3>
-        <p>Separate permission levels for Administrators, Doctors, Nurses, Pharmacy, and Healthcare Assistants.</p>
-      </div>
+   function saveState() {
+     localStorage.setItem("mobile-pharmacy-setup", JSON.stringify({
+       roomName: state.roomName,
+       notes: state.notes,
+       locations: state.locations,
+       savedMessage: state.savedMessage
+     }));
+   }
 
-      <div class="feature-card">
-        <div class="icon">🌐</div>
-        <h3>Wi-Fi Management</h3>
-        <p>Admin-only local Wi-Fi scanning and connection management built directly into the app.</p>
-      </div>
+   function renderWorkflowActions() {
+     workflowActionsEl.innerHTML = "";
+     workflowActions.forEach((action) => {
+       const button = document.createElement("button");
+       button.className = `workflow-chip ${state.currentStep === action.step ? "active" : ""}`;
+       button.textContent = action.label;
+       button.addEventListener("click", () => {
+         state.currentStep = action.step;
+         render();
+       });
+       workflowActionsEl.appendChild(button);
+     });
+   }
 
-      <div class="feature-card">
-        <div class="icon">🔄</div>
-        <h3>Automatic Updates</h3>
-        <p>In-app update checker notifies admins when new versions are available — download and install without leaving the app.</p>
-      </div>
+   function render() {
+     renderWorkflowActions();
+     prevButton.disabled = state.currentStep === 0;
+     nextButton.textContent = state.currentStep === 2 ? "Save layout" : "Next";
 
-    </div>
-  </div>
-</section>
+     if (state.currentStep === 0) {
+       stepContent.innerHTML = `
+         <div class="step-intro">
+           <h3>Step 1 • Scan the room</h3>
+           <p>Enter the room name and note the purpose of the scan before walking around the shelves.</p>
+         </div>
+         <label class="field-label">
+           Room name
+           <input id="room-name" class="field-input" value="${state.roomName}" placeholder="Dispensary" />
+         </label>
+         <label class="field-label">
+           Notes
+           <textarea id="room-notes" class="field-input field-textarea" placeholder="Optional notes about the scan">${state.notes}</textarea>
+         </label>
+         <div class="info-card">
+           <strong>Next actions</strong>
+           <ul>
+             <li>Walk around the room to capture shelving units</li>
+             <li>Label shelves such as A1, A2, B1</li>
+             <li>Choose storage types and save the plan</li>
+           </ul>
+         </div>
+       `;
+       document.getElementById("room-name").addEventListener("input", (event) => {
+         state.roomName = event.target.value;
+         saveState();
+       });
+       document.getElementById("room-notes").addEventListener("input", (event) => {
+         state.notes = event.target.value;
+         saveState();
+       });
+     } else if (state.currentStep === 1) {
+       stepContent.innerHTML = `
+         <div class="step-intro">
+           <h3>Step 2 • Walk around and label shelves</h3>
+           <p>Add the shelving units or storage zones you found during the walk-around.</p>
+         </div>
+         <div class="location-form">
+           <label class="field-label">
+             Label
+             <input id="location-label" class="field-input" value="A1" placeholder="A1" />
+           </label>
+           <label class="field-label">
+             Storage type
+             <select id="location-type" class="field-input">
+               <option value="Shelf">Shelf</option>
+               <option value="Fridge">Fridge</option>
+               <option value="Controlled drug cabinet">Controlled drug cabinet</option>
+               <option value="Bulk storage">Bulk storage</option>
+               <option value="Dispensary">Dispensary</option>
+             </select>
+           </label>
+           <label class="field-label">
+             Photo angles
+             <input id="location-photos" class="field-input" type="number" min="1" value="3" />
+           </label>
+           <label class="field-label">
+             Notes
+             <input id="location-notes" class="field-input" placeholder="Controlled cabinet" />
+           </label>
+           <button id="add-location" class="btn btn-primary">Add location</button>
+         </div>
+         <div class="location-list">
+           ${state.locations.length ? state.locations.map((location, index) => `
+             <div class="location-card">
+               <div class="location-card__top">
+                 <strong>${location.label}</strong>
+                 <span>${location.storageType}</span>
+               </div>
+               <p>${location.notes || "No notes"}</p>
+               <small>${location.photoCount} photo angles</small>
+             </div>
+           `).join("") : '<p class="empty-state">No zones added yet. Start with one shelf or storage unit.</p>'}
+         </div>
+       `;
+       document.getElementById("add-location").addEventListener("click", () => {
+         const label = document.getElementById("location-label").value.trim() || "A1";
+         const storageType = document.getElementById("location-type").value;
+         const photoCount = document.getElementById("location-photos").value || "3";
+         const notes = document.getElementById("location-notes").value.trim();
+         state.locations.push({ label, storageType, photoCount, notes });
+         saveState();
+         render();
+       });
+     } else {
+       const previewLocations = state.locations.length ? state.locations : [{ label: "A1", storageType: "Shelf", photoCount: 3, notes: "Example preview" }];
+       stepContent.innerHTML = `
+         <div class="step-intro">
+           <h3>Step 3 • Review & save</h3>
+           <p>Review the layout preview and save the setup plan for later use.</p>
+         </div>
+         <div class="preview-grid">
+           ${previewLocations.map((location) => `
+             <div class="preview-card">
+               <strong>${location.label}</strong>
+               <span>${location.storageType}</span>
+               <p>${location.photoCount} photo angles</p>
+               <small>${location.notes || "No notes"}</small>
+             </div>
+           `).join("")}
+         </div>
+         <div class="info-card">
+           <strong>Saved values</strong>
+           <p>${state.roomName || "Room name pending"}</p>
+           <p>${state.notes || "No notes yet"}</p>
+           <p>${state.savedMessage || "Tap save to keep the plan on this device."}</p>
+         </div>
+       `;
+     }
+   }
 
-<!-- ── Latest updates preview ── -->
-<section class="updates" id="updates" style="max-width:var(--max-width);margin:0 auto;padding:64px 24px;">
-  <h2>Latest Updates</h2>
-  <p class="subtitle">Recent releases and what changed.</p>
-  <div id="latest-update-preview" class="update-list">
-    <p style="color:var(--color-muted)">Loading release information...</p>
-  </div>
-  <br />
-  <a href="updates.html" class="btn btn-outline" style="margin-left:0">View all updates →</a>
-</section>
+   prevButton.addEventListener("click", () => {
+     if (state.currentStep > 0) {
+       state.currentStep -= 1;
+       render();
+     }
+   });
 
-<!-- ── Download ── -->
-<section class="download" id="download">
-  <div class="container">
-    <h2>Download</h2>
-    <p id="download-desc">Get the latest version for Windows.</p>
-    <a id="download-main-btn" href="#" class="btn btn-primary">Download for Windows</a>
-    <div class="platform-badges">
-      <span class="platform-badge">✅ Windows 10</span>
-      <span class="platform-badge">✅ Windows 11</span>
-      <span class="platform-badge">🔄 macOS — planned</span>
-      <span class="platform-badge">🔄 Linux — planned</span>
-    </div>
-  </div>
-</section>
+   nextButton.addEventListener("click", () => {
+     if (state.currentStep < 2) {
+       state.currentStep += 1;
+       render();
+     } else {
+       state.savedMessage = `Saved setup for ${state.roomName || "the room"}`;
+       saveState();
+       render();
+     }
+   });
 
-<!-- ── Contact ── -->
-<section id="contact" style="padding:64px 24px;text-align:center;">
-  <div class="container">
-    <h2 style="color:#fff;margin-bottom:12px;">Get in touch</h2>
-    <p style="color:var(--color-muted);margin-bottom:20px;">For support, feedback, or feature requests:</p>
-    <a id="contact-email" href="#" class="btn btn-outline" style="margin-left:0">Email Support</a>
-  </div>
-</section>
+   toggleButton.addEventListener("click", () => {
+     setupPanel.hidden = !setupPanel.hidden;
+     toggleButton.textContent = setupPanel.hidden ? "Open setup" : "Collapse setup";
+     if (!setupPanel.hidden) {
+       loadState();
+       render();
+     }
+   });
 
-<!-- ── Footer ── -->
-<footer>
-  <div class="container">
-    <p id="footer-text">&copy; 2026 — All rights reserved.</p>
-  </div>
-</footer>
-
-<script>
-  // Apply config to every element in the page
-  document.getElementById("page-title").textContent = SITE_CONFIG.appName + " — " + SITE_CONFIG.appTagline;
-  document.getElementById("page-desc").setAttribute("content", SITE_CONFIG.appDescription);
-  document.getElementById("nav-logo").textContent = SITE_CONFIG.appName;
-  document.getElementById("hero-title").innerHTML =
-    SITE_CONFIG.appName + "<br /><span style='color:var(--color-accent)'>" + SITE_CONFIG.appTagline + "</span>";
-  document.getElementById("hero-desc").textContent = SITE_CONFIG.appDescription;
-  document.getElementById("hero-download-btn").textContent = SITE_CONFIG.downloadLabel;
-  document.getElementById("hero-download-btn").href = SITE_CONFIG.downloadUrl;
-  document.getElementById("download-desc").textContent =
-    "Download " + SITE_CONFIG.appName + " v" + SITE_CONFIG.currentVersion + " for Windows.";
-  document.getElementById("download-main-btn").textContent = SITE_CONFIG.downloadLabel;
-  document.getElementById("download-main-btn").href = SITE_CONFIG.downloadUrl;
-  document.getElementById("contact-email").textContent = "Email: " + SITE_CONFIG.supportEmail;
-  document.getElementById("contact-email").href = "mailto:" + SITE_CONFIG.supportEmail;
-  document.getElementById("footer-text").innerHTML =
-    "&copy; " + new Date().getFullYear() + " " + SITE_CONFIG.appName + " &mdash; All rights reserved.";
-
-  // Load latest update from manifest
-  fetch("Taboryx_version.json?v=" + Date.now())
-    .then(r => r.json())
-    .then(data => {
-      const box = document.getElementById("latest-update-preview");
-      const notes = (data.release_notes || "").split("\n").filter(l => l.trim());
-      const items = notes.map(l => "<li>" + l.replace(/^[-•]\s*/, "") + "</li>").join("");
-      box.innerHTML = `
-        <div class="update-entry latest">
-          <div class="update-meta">
-            <span class="version-badge">v${data.version}</span>
-            <span class="update-date">${data.release_date || ""}</span>
-            <span class="update-label-latest">Latest</span>
-          </div>
-          <h3>${data.title || "Release v" + data.version}</h3>
-          <ul>${items || "<li>See full release notes on the Updates page.</li>"}</ul>
-        </div>`;
-    })
-    .catch(() => {
-      document.getElementById("latest-update-preview").innerHTML =
-        "<p style='color:var(--color-muted)'>Release information unavailable.</p>";
-    });
-</script>
-
+   loadState();
+   render();
+  </script>
 </body>
 </html>
