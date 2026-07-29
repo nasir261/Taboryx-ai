@@ -24,7 +24,7 @@ const SITE_CONFIG = {
   downloadLabel: "Download for Windows",
 
   // ── Contact / support ─────────────────────────────────────────────
-  supportEmail:  "nasiralimd@hotmail.com",
+  supportEmail:  "magnetic.axis@gmail.com",
   githubUrl:     "https://github.com/nasir261/taboryx-ai",
 
   // ── Colours (CSS custom properties) ──────────────────────────────
