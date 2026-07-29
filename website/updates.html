@@ -52,7 +52,7 @@
       1. Copy the block below that starts with <div class="update-entry latest">
       2. Change "latest" to just "update-entry" on the PREVIOUS entry
       3. Update: version, release_date, title, and the <li> bullet points
-      4. Also update medistock_version.json with the new version + download_url
+      4. Also update Taboryx_version.json with the new version + download_url
       ════════════════════════════════════════════════════════
     -->
 
@@ -115,11 +115,11 @@
     "&copy; " + new Date().getFullYear() + " " + SITE_CONFIG.appName + " &mdash; All rights reserved.";
 
   // Show the manifest URL
-  const manifestUrl = window.location.href.replace("updates.html", "") + "medistock_version.json";
+  const manifestUrl = window.location.href.replace("updates.html", "") + "Taboryx_version.json";
   document.getElementById("manifest-url-display").textContent = manifestUrl;
 
   // Load and show live manifest
-  fetch("medistock_version.json?v=" + Date.now())
+  fetch("Taboryx_version.json?v=" + Date.now())
     .then(r => r.json())
     .then(data => {
       document.getElementById("manifest-preview").textContent = JSON.stringify(data, null, 2);

@@ -1,4 +1,4 @@
-﻿const state = {
+const state = {
   dashboard: null,
   inventory: [],
   movements: [],
@@ -6,7 +6,7 @@
   audits: [],
   rooms: [],
   fridges: [],
-  token: localStorage.getItem('medistock_token') || '',
+  token: localStorage.getItem('Taboryx_token') || '',
   currentView: 'login',
   selectedItemId: null,
   error: '',
@@ -48,7 +48,7 @@ function render() {
     root.innerHTML = `
       <div class="form-card">
         <p class="eyebrow">Secure mobile access</p>
-        <h1>MediStock AI</h1>
+        <h1>Taboryx AI</h1>
         <p class="subtle">Sign in with your desktop credentials</p>
         <p class="subtle">Demo: admin / password123</p>
         <form id="loginForm">
@@ -274,7 +274,7 @@ function render() {
       <header class="app-header">
         <div class="app-title-block">
           <p class="eyebrow">Mobile web</p>
-          <h1>MediStock AI</h1>
+          <h1>Taboryx AI</h1>
           <p class="subtle">Pharmacy inventory at a glance</p>
         </div>
         <button id="refreshButton" class="pill-button">Refresh</button>
@@ -598,7 +598,7 @@ async function handleLogin(event) {
       body: JSON.stringify({ username, password }),
     });
     state.token = result.token || '';
-    localStorage.setItem('medistock_token', state.token);
+    localStorage.setItem('Taboryx_token', state.token);
     state.currentView = 'main';
     render();
     await loadData();

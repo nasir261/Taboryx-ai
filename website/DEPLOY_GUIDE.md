@@ -6,7 +6,7 @@
 website/
 ├── index.html            ← Main landing page
 ├── updates.html          ← Release history + manifest viewer
-├── medistock_version.json ← Version manifest (read by the desktop app)
+├── Taboryx_version.json ← Version manifest (read by the desktop app)
 ├── config.js             ← Single file for renaming the app / changing settings
 └── assets/
     └── style.css         ← All styles
@@ -21,7 +21,7 @@ website/
 
 1. Go to https://github.com/new
 2. Create a new repository (can be private or public — Pages works on both with the right plan)
-3. Name it anything, e.g. `medistock-site` or your final app name
+3. Name it anything, e.g. `Taboryx-site` or your final app name
 
 ---
 
@@ -58,22 +58,22 @@ https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/
 Open `src/services/update_service.py` and change:
 
 ```python
-UPDATE_MANIFEST_URL = "https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/medistock_version.json"
+UPDATE_MANIFEST_URL = "https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/Taboryx_version.json"
 ```
 
 ---
 
 ## How to post a new update
 
-### 1. Edit `website/medistock_version.json`
+### 1. Edit `website/Taboryx_version.json`
 
 ```json
 {
   "version": "1.0.0",
   "title": "Version 1.0.0 — Your update title",
   "release_date": "01 August 2026",
-  "download_url": "https://github.com/YOUR_USERNAME/YOUR_REPO/releases/download/v1.0.0/MediStockSetup_1.0.0.exe",
-  "filename": "MediStockSetup_1.0.0.exe",
+  "download_url": "https://github.com/YOUR_USERNAME/YOUR_REPO/releases/download/v1.0.0/TaboryxSetup_1.0.0.exe",
+  "filename": "TaboryxSetup_1.0.0.exe",
   "release_notes": "- What changed\n- Another change\n- Bug fix"
 }
 ```

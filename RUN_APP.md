@@ -101,7 +101,7 @@ Three buttons to click:
    - This is normal for a fresh installation
 
 3. **Review the Database**
-   - File located at: `data/medistock.db`
+   - File located at: `data/Taboryx.db`
    - Can view with SQLite browser if you want
 
 ---
@@ -185,13 +185,13 @@ After you run the app and see it working, you can:
 
 ## ⚡ One-Click Start (Desktop + Mobile API)
 
-Use [START_MEDISTOCK_ONE_CLICK.bat](C:/Users/Home/Documents/project.inventory/START_MEDISTOCK_ONE_CLICK.bat)
+Use [START_Taboryx_ONE_CLICK.bat](C:/Users/Home/Documents/project.inventory/START_Taboryx_ONE_CLICK.bat)
 
-1. Open [START_MEDISTOCK_ONE_CLICK.bat](C:/Users/Home/Documents/project.inventory/START_MEDISTOCK_ONE_CLICK.bat)
+1. Open [START_Taboryx_ONE_CLICK.bat](C:/Users/Home/Documents/project.inventory/START_Taboryx_ONE_CLICK.bat)
 2. It will:
    - start the mobile API server on port 8000 (if not already running)
    - launch the desktop app
 3. On iPhone (same Wi-Fi), open:
    - `http://<your-pc-ip>:8000/`
 
-Tip: Right-click [START_MEDISTOCK_ONE_CLICK.bat](C:/Users/Home/Documents/project.inventory/START_MEDISTOCK_ONE_CLICK.bat) and create a desktop shortcut for daily use.
+Tip: Right-click [START_Taboryx_ONE_CLICK.bat](C:/Users/Home/Documents/project.inventory/START_Taboryx_ONE_CLICK.bat) and create a desktop shortcut for daily use.

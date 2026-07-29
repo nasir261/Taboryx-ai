@@ -124,7 +124,7 @@ class TimeSyncService:
         request = Request(
             url=url,
             headers={
-                "User-Agent": "MediStockAI/1.0",
+                "User-Agent": "TaboryxAI/1.0",
                 "Accept": "application/json",
             },
         )
@@ -154,7 +154,7 @@ class TimeSyncService:
         request = Request(
             url=url,
             headers={
-                "User-Agent": "MediStockAI/1.0",
+                "User-Agent": "TaboryxAI/1.0",
                 "Accept": "application/json, text/html;q=0.9, */*;q=0.8",
             },
         )

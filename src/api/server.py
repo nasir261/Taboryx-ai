@@ -1,5 +1,5 @@
 """
-Lightweight HTTP API for the MediStock AI mobile companion app.
+Lightweight HTTP API for the Taboryx AI mobile companion app.
 """
 
 import argparse
@@ -83,8 +83,8 @@ class TokenStore:
 TOKENS = TokenStore()
 
 
-class MediStockAPIHandler(BaseHTTPRequestHandler):
-    server_version = "MediStockAPI/1.0"
+class TaboryxAPIHandler(BaseHTTPRequestHandler):
+    server_version = "TaboryxAPI/1.0"
 
     def log_message(self, format, *args):
         logger.info("%s - %s", self.address_string(), format % args)
@@ -108,7 +108,7 @@ class MediStockAPIHandler(BaseHTTPRequestHandler):
         try:
             logger.info("Routing %s %s", method, path)
             if path == "/health":
-                self._json_response(HTTPStatus.OK, {"status": "ok", "service": "MediStock AI API"})
+                self._json_response(HTTPStatus.OK, {"status": "ok", "service": "Taboryx AI API"})
                 return
 
             if path.startswith("/api/"):
@@ -623,8 +623,8 @@ class MediStockAPIHandler(BaseHTTPRequestHandler):
 
 def run(host: str = "0.0.0.0", port: int = 8000):
     init_database()
-    server = ThreadingHTTPServer((host, port), MediStockAPIHandler)
-    logger.info("MediStock API running on http://%s:%s", host, port)
+    server = ThreadingHTTPServer((host, port), TaboryxAPIHandler)
+    logger.info("Taboryx API running on http://%s:%s", host, port)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
@@ -634,7 +634,7 @@ def run(host: str = "0.0.0.0", port: int = 8000):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Run the MediStock AI API server.")
+    parser = argparse.ArgumentParser(description="Run the Taboryx AI API server.")
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", type=int, default=8000)
     args = parser.parse_args()

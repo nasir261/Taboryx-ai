@@ -19,7 +19,7 @@ from src.models.models import User
 from src.database.db import get_database
 from src.ui.login_window import LoginWindow
 from src.ui.dashboard import Dashboard
-from src.api.server import MediStockAPIHandler
+from src.api.server import TaboryxAPIHandler
 from src.services.backup_service import BackupService
 from src.services.session_timeout_service import SessionTimeoutService
 from src.services.time_sync_service import get_time_sync_service
@@ -204,7 +204,7 @@ class MainWindow:
             self.mobile_access_status_color = "#f59e0b"
             return
         try:
-            self.mobile_api_server = ThreadingHTTPServer((MOBILE_API_HOST, MOBILE_API_PORT), MediStockAPIHandler)
+            self.mobile_api_server = ThreadingHTTPServer((MOBILE_API_HOST, MOBILE_API_PORT), TaboryxAPIHandler)
             self.mobile_api_thread = Thread(target=self.mobile_api_server.serve_forever, daemon=True)
             self.mobile_api_thread.start()
             lan_ip = self._resolve_lan_ip()

@@ -1,4 +1,4 @@
-# MediStock AI - Prison Healthcare Inventory Management System
+# Taboryx AI - Prison Healthcare Inventory Management System
 
 A modern, intelligent inventory management system for prison healthcare settings built with Python and CustomTkinter.
 
@@ -149,7 +149,7 @@ Please follow PEP 8 coding standards and include unit tests for new features.
 
 ## License
 
-Copyright © 2026 MediStock AI
+Copyright © 2026 Taboryx AI
 
 ## Support
 

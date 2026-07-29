@@ -1,9 +1,9 @@
-# MediStock AI - Automated Setup Script
+# Taboryx AI - Automated Setup Script
 # Run this PowerShell script to set up and run the application
 
 Write-Host ""
 Write-Host "╔════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "║     MediStock AI - Automated Setup Script         ║" -ForegroundColor Cyan
+Write-Host "║     Taboryx AI - Automated Setup Script         ║" -ForegroundColor Cyan
 Write-Host "╚════════════════════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host ""
 
@@ -70,7 +70,7 @@ Write-Host ""
 # Step 5: Run the application
 Write-Host "Step 5/5: Starting application..." -ForegroundColor Yellow
 Write-Host ""
-Write-Host "The MediStock AI login window should open shortly..." -ForegroundColor Cyan
+Write-Host "The Taboryx AI login window should open shortly..." -ForegroundColor Cyan
 Write-Host ""
 Write-Host "╔════════════════════════════════════════════════════╗" -ForegroundColor Green
 Write-Host "║           Login Credentials                        ║" -ForegroundColor Green

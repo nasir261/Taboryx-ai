@@ -48,7 +48,7 @@ class Dashboard(ctk.CTkFrame):
 
         brand = ctk.CTkFrame(sidebar, fg_color="transparent")
         brand.pack(fill="x", padx=14, pady=(14, 10))
-        ctk.CTkLabel(brand, text="MediStock AI", font=("Segoe UI", 23, "bold"), text_color="#6ee7ff").pack(anchor="w")
+        ctk.CTkLabel(brand, text="Taboryx AI", font=("Segoe UI", 23, "bold"), text_color="#6ee7ff").pack(anchor="w")
         ctk.CTkLabel(brand, text="Pharmacy Inventory System", font=("Segoe UI", 13), text_color="#8fa2c9").pack(anchor="w")
 
         nav_scroll = ctk.CTkScrollableFrame(sidebar, fg_color="transparent")

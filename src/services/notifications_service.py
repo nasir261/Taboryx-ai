@@ -42,7 +42,7 @@ class NotificationsService:
                         "type": "software_update",
                         "severity": "info",
                         "priority": 1,
-                        "title": f"MediStock AI update available: v{latest}",
+                        "title": f"Taboryx AI update available: v{latest}",
                         "message": (
                             f"A new version ({latest}) is available. "
                             "Go to System → Updates to download and install."

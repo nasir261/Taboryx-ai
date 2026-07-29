@@ -32,7 +32,7 @@ exe = EXE(
     analysis.binaries,
     analysis.datas,
     [],
-    name='MediStockAI',
+    name='TaboryxAI',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

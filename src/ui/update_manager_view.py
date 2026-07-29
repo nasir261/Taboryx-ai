@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 class UpdateManagerView(ctk.CTkFrame):
-    """Desktop panel for checking and installing MediStock AI updates."""
+    """Desktop panel for checking and installing Taboryx AI updates."""
 
     def __init__(self, parent, user_role: str):
         super().__init__(parent, fg_color="transparent")

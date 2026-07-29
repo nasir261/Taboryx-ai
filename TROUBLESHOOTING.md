@@ -70,7 +70,7 @@ cannot be loaded because running scripts is disabled on this system
 2. Look for error messages
 3. Common causes:
    - Missing packages: `pip install -r requirements.txt`
-   - Database permission issue: Delete `data/medistock.db` and restart
+   - Database permission issue: Delete `data/Taboryx.db` and restart
    - Display issue: Make sure you're on a display (not remote SSH)
 
 ---
@@ -104,7 +104,7 @@ ModuleNotFoundError: No module named 'customtkinter'
 
 **Solution:**
 1. Close the application completely
-2. Delete: `data/medistock.db`
+2. Delete: `data/Taboryx.db`
 3. Restart the app (it will recreate the database)
 4. This resets all data, so only do if needed
 
@@ -189,9 +189,9 @@ ModuleNotFoundError: No module named 'customtkinter'
    ```powershell
    Remove-Item -Recurse venv
    ```
-2. Delete `data/medistock.db`:
+2. Delete `data/Taboryx.db`:
    ```powershell
-   Remove-Item data/medistock.db
+   Remove-Item data/Taboryx.db
    ```
 3. Restart PowerShell
 4. Run the 5 commands again from scratch
@@ -227,7 +227,7 @@ If you're still stuck:
 - [ ] Virtual environment activated: See `(venv)` in prompt
 - [ ] Packages installed: `pip install -r requirements.txt`
 - [ ] In correct directory: `c:\Users\Home\Documents\project.inventory`
-- [ ] Database exists: `data/medistock.db` created after first run
+- [ ] Database exists: `data/Taboryx.db` created after first run
 - [ ] Logs checked: `logs/app.log` shows no errors
 - [ ] App running: `python -m src.app`
 

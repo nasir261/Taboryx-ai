@@ -1,4 +1,4 @@
-# MediStock AI - Getting Started Checklist
+# Taboryx AI - Getting Started Checklist
 
 ## ✅ What's Been Delivered
 
@@ -87,7 +87,7 @@ To build a standalone Windows `.exe` from the project:
 The executable will be created at:
 
 ```text
-dist\MediStockAI.exe
+dist\TaboryxAI.exe
 ```
 
 ### Step 6: Login
@@ -152,7 +152,7 @@ python -m src.app
 
 ### Check Database
 ```powershell
-# Database created automatically at: data/medistock.db
+# Database created automatically at: data/Taboryx.db
 # View with: https://sqlitebrowser.org/
 ```
 
@@ -316,7 +316,7 @@ A: Login as admin, then use admin UI (to be built in next phase).
 A: Database initializes empty. You can add data through the UI or SQL directly.
 
 **Q: How do I back up the database?**
-A: Copy `data/medistock.db` file. Backup functionality coming in Phase 2.
+A: Copy `data/Taboryx.db` file. Backup functionality coming in Phase 2.
 
 **Q: Can I deploy to multiple locations?**
 A: Yes! Phase 4 includes multi-site and cloud sync support.

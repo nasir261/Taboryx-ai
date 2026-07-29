@@ -54,7 +54,7 @@ pip install -r requirements.txt
 python -m src.app
 ```
 - [ ] A window appears (login window)
-- [ ] Window is labeled "MediStock AI v0.1.0"
+- [ ] Window is labeled "Taboryx AI v0.1.0"
 
 ---
 

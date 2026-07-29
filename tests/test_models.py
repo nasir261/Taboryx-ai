@@ -1,5 +1,5 @@
 """
-Unit Tests for MediStock AI
+Unit Tests for Taboryx AI
 Test suite for core functionality
 """
 

@@ -1,1 +1,1 @@
-"""MediStock AI - Prison Healthcare Inventory Management System"""
+"""Taboryx AI - Prison Healthcare Inventory Management System"""

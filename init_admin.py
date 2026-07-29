@@ -20,7 +20,7 @@ else:
     try:
         success, msg, user_id = auth.create_user(
             username='admin',
-            email='admin@medistock.local',
+            email='admin@Taboryx.local',
             password='password123',
             full_name='System Administrator',
             role='Administrator'

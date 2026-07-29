@@ -1,5 +1,5 @@
 """
-MediStock AI - Configuration Module
+Taboryx AI - Configuration Module
 Centralized configuration for the application
 """
 
@@ -9,9 +9,9 @@ from pathlib import Path
 from enum import Enum
 
 # Application info
-APP_NAME = "MediStock AI"
+APP_NAME = "Taboryx AI"
 APP_VERSION = "0.1.0"
-APP_AUTHOR = "MediStock Development Team"
+APP_AUTHOR = "Taboryx Development Team"
 
 
 def _resolve_base_dir() -> Path:
@@ -26,7 +26,7 @@ def _resolve_base_dir() -> Path:
 # Paths
 BASE_DIR = _resolve_base_dir()
 DATA_DIR = BASE_DIR / "data"
-DATABASE_PATH = DATA_DIR / "medistock.db"
+DATABASE_PATH = DATA_DIR / "Taboryx.db"
 LOGS_DIR = BASE_DIR / "logs"
 
 # Create directories if they don't exist

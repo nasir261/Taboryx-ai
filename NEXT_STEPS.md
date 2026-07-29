@@ -2,7 +2,7 @@
 
 ## 📍 WHERE YOU ARE NOW
 
-✅ **MediStock AI Foundation is Complete**
+✅ **Taboryx AI Foundation is Complete**
 - Database schema created (13 tables)
 - Authentication system built
 - Data models defined
@@ -80,7 +80,7 @@ Read these in order:
 
 Tasks:
 1. Run the app multiple times
-2. Check database file: `data/medistock.db`
+2. Check database file: `data/Taboryx.db`
 3. Review log file: `logs/app.log`
 4. Read through the code in `src/`
 5. Understand the project structure
@@ -238,7 +238,7 @@ A: Foundation is. Features are in progress (2-3 weeks remaining).
 A: Yes! Use `auth_service.create_user()` or build admin UI.
 
 **Q: How do I back up data?**
-A: Copy `data/medistock.db` file.
+A: Copy `data/Taboryx.db` file.
 
 **Q: Can I change the database?**
 A: Yes! Update connection string in `config.py`.

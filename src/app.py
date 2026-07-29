@@ -1,5 +1,5 @@
 """
-MediStock AI - Main Application Entry Point
+Taboryx AI - Main Application Entry Point
 Initializes and runs the application
 """
 

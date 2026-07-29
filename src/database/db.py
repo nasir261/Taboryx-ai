@@ -170,7 +170,7 @@ class Database:
                 username, email, password_hash, full_name, role, is_active, failed_login_attempts, created_at, updated_at
             ) VALUES (?, ?, ?, ?, ?, ?, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
             """,
-            ("admin", "admin@medistock.local", password_hash, "System Administrator", "administrator", True),
+            ("admin", "admin@Taboryx.local", password_hash, "System Administrator", "administrator", True),
         )
         self.connection.commit()
         logger.info("Seeded default admin user 'admin' with password 'password123'")

@@ -161,7 +161,7 @@
     "&copy; " + new Date().getFullYear() + " " + SITE_CONFIG.appName + " &mdash; All rights reserved.";
 
   // Load latest update from manifest
-  fetch("medistock_version.json?v=" + Date.now())
+  fetch("Taboryx_version.json?v=" + Date.now())
     .then(r => r.json())
     .then(data => {
       const box = document.getElementById("latest-update-preview");

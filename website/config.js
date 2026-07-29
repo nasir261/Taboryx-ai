@@ -8,14 +8,14 @@
 const SITE_CONFIG = {
 
   // ── App identity ──────────────────────────────────────────────────
-  appName:       "MediStock AI",          // Change to your final app name
+  appName:       "Taboryx AI",          // Change to your final app name
   appTagline:    "Healthcare Inventory Management for Clinical Teams",
   appDescription:
     "A modern Windows desktop system designed for prison healthcare and clinical " +
     "settings — helping pharmacy, nursing, and medical staff manage medicines, " +
     "consumables, and equipment with confidence.",
 
-  // ── Version (keep in sync with medistock_version.json) ────────────
+  // ── Version (keep in sync with Taboryx_version.json) ────────────
   currentVersion: "0.1.0",
 
   // ── Download / installer ──────────────────────────────────────────
@@ -25,7 +25,7 @@ const SITE_CONFIG = {
 
   // ── Contact / support ─────────────────────────────────────────────
   supportEmail:  "support@example.com",     // Replace with your email
-  githubUrl:     "",                        // Optional: your GitHub repo URL
+  githubUrl:     "https://github.com/nasir261/taboryx-ai",
 
   // ── Colours (CSS custom properties) ──────────────────────────────
   colorPrimary:  "#2563eb",

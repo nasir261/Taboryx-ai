@@ -1,4 +1,4 @@
-# MediStock AI - ONE PAGE QUICK REFERENCE
+# Taboryx AI - ONE PAGE QUICK REFERENCE
 
 ## 5 COMMANDS TO RUN THE APP
 
@@ -44,7 +44,7 @@ python -m src.app
 | File | Purpose |
 |------|---------|
 | `c:\Users\Home\Documents\project.inventory` | Project folder |
-| `data/medistock.db` | Database |
+| `data/Taboryx.db` | Database |
 | `logs/app.log` | Error logs |
 | `src/config.py` | Settings |
 | `src/app.py` | Start here |

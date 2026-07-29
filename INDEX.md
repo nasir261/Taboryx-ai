@@ -1,4 +1,4 @@
-# 📑 MediStock AI - Complete Documentation Index
+# 📑 Taboryx AI - Complete Documentation Index
 
 ## 🚀 START HERE
 

@@ -1,10 +1,10 @@
-# MediStock AI - Phase 1 Project Summary
+# Taboryx AI - Phase 1 Project Summary
 
 ## ✅ Completed Work
 
 ### Project Foundation Established
 
-**MediStock AI** has been successfully initialized with a complete foundation for Phase 1 (Core Inventory Management).
+**Taboryx AI** has been successfully initialized with a complete foundation for Phase 1 (Core Inventory Management).
 
 ---
 

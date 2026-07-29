@@ -1,6 +1,6 @@
 """
 Update Service
-Checks online for new MediStock AI versions, downloads and launches the installer.
+Checks online for new Taboryx AI versions, downloads and launches the installer.
 """
 
 import json
@@ -19,13 +19,13 @@ logger = logging.getLogger(__name__)
 
 # ------------------------------------------------------------------
 # Version manifest URL
-# Point this to wherever you host medistock_version.json.
+# Point this to wherever you host Taboryx_version.json.
 # The file must return JSON matching the schema shown in _parse_manifest().
 # Default: a file inside the project that acts as a local stub so the
 # feature works without a live server.  Replace with a real HTTPS URL
 # once you have a hosting location.
 # ------------------------------------------------------------------
-UPDATE_MANIFEST_URL = "https://raw.githubusercontent.com/medistock-ai/releases/main/medistock_version.json"
+UPDATE_MANIFEST_URL = "https://nasir261.github.io/taboryx-ai/taboryx_version.json"
 UPDATE_MANIFEST_URL_FALLBACK = None   # optional second URL
 
 DOWNLOAD_DIR = DATA_DIR / "updates"
@@ -41,7 +41,7 @@ def _version_tuple(version_str: str) -> tuple:
 
 
 class UpdateService:
-    """Checks for, downloads, and launches MediStock AI updates."""
+    """Checks for, downloads, and launches Taboryx AI updates."""
 
     def __init__(self, manifest_url: Optional[str] = None):
         self.manifest_url = manifest_url or UPDATE_MANIFEST_URL
@@ -91,7 +91,7 @@ class UpdateService:
             (success, message, local_path_or_None)
         """
         url = manifest.get("download_url", "")
-        filename = manifest.get("filename") or url.split("/")[-1] or "MediStockSetup.exe"
+        filename = manifest.get("filename") or url.split("/")[-1] or "TaboryxSetup.exe"
         if not url:
             return False, "Manifest has no download_url.", None
 
@@ -150,7 +150,7 @@ class UpdateService:
             if not url:
                 continue
             try:
-                req = urllib.request.Request(url, headers={"User-Agent": f"MediStockAI/{APP_VERSION}"})
+                req = urllib.request.Request(url, headers={"User-Agent": f"TaboryxAI/{APP_VERSION}"})
                 with urllib.request.urlopen(req, timeout=timeout) as response:
                     raw = response.read().decode("utf-8")
                     return json.loads(raw)
@@ -164,7 +164,7 @@ class UpdateService:
         dest: Path,
         progress_callback: Optional[Callable[[int, int], None]] = None,
     ):
-        req = urllib.request.Request(url, headers={"User-Agent": f"MediStockAI/{APP_VERSION}"})
+        req = urllib.request.Request(url, headers={"User-Agent": f"TaboryxAI/{APP_VERSION}"})
         with urllib.request.urlopen(req, timeout=60) as response:
             total = int(response.headers.get("Content-Length", 0))
             downloaded = 0

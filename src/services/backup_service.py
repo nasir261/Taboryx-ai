@@ -45,7 +45,7 @@ class BackupService:
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         safe_label = f"_{label.strip().replace(' ', '_')}" if label and label.strip() else ""
-        backup_path = self.backup_dir / f"medistock_backup_{timestamp}{safe_label}.db.enc"
+        backup_path = self.backup_dir / f"Taboryx_backup_{timestamp}{safe_label}.db.enc"
 
         self.db.connection.commit()
         try:
@@ -57,8 +57,8 @@ class BackupService:
 
     def list_backups(self) -> List[Path]:
         """List available backups, newest first."""
-        encrypted_backups = list(self.backup_dir.glob("medistock_backup_*.db.enc"))
-        legacy_backups = list(self.backup_dir.glob("medistock_backup_*.db"))
+        encrypted_backups = list(self.backup_dir.glob("Taboryx_backup_*.db.enc"))
+        legacy_backups = list(self.backup_dir.glob("Taboryx_backup_*.db"))
         backups = sorted(encrypted_backups + legacy_backups, key=lambda p: p.stat().st_mtime, reverse=True)
         return backups
 
@@ -103,7 +103,7 @@ class BackupService:
         if backup.parent.resolve() != self.backup_dir.resolve():
             return False, "Invalid backup file location"
 
-        if not backup.name.startswith("medistock_backup_"):
+        if not backup.name.startswith("Taboryx_backup_"):
             return False, "Invalid backup file"
         if backup.suffix.lower() not in {".db", ".enc"} and not backup.name.endswith(".db.enc"):
             return False, "Invalid backup file"

@@ -1,4 +1,4 @@
 """
-API package for MediStock AI.
+API package for Taboryx AI.
 """
 

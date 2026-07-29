@@ -42,7 +42,7 @@ class LoginWindow(ctk.CTkFrame):
         # Title
         title = ctk.CTkLabel(
             main_container,
-            text="MediStock AI",
+            text="Taboryx AI",
             font=("Segoe UI", 28, "bold")
         )
         title.pack(pady=20)

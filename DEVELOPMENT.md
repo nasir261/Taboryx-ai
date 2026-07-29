@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-MediStock AI is a modular, layered application using:
+Taboryx AI is a modular, layered application using:
 - **Presentation Layer:** CustomTkinter UI
 - **Business Logic:** Service classes (AuthenticationService, InventoryService)
 - **Data Access:** Database module with models
