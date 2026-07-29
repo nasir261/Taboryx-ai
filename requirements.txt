@@ -1,0 +1,14 @@
+customtkinter==5.2.2
+bcrypt==4.1.2
+pyzbar==0.1.9
+pillow==12.3.0
+openpyxl==3.1.5
+reportlab==5.0.0
+matplotlib==3.11.1
+python-dotenv==1.0.1
+pytest==8.3.5
+pytest-cov==6.0.0
+cryptography==44.0.1
+SpeechRecognition==3.10.4
+pyaudiowpatch==0.2.12.8
+audioop-lts==0.2.2

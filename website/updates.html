@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Updates</title>
+  <meta name="description" content="Software release history and update notes." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="config.js"></script>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" id="nav-logo" style="text-decoration:none">Loading...</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="updates.html" class="active">Updates</a></li>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#download">Download</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Page header ── -->
+<div class="page-header">
+  <div class="container">
+    <h1>Software Updates</h1>
+    <p id="page-subtitle">Release history for <span id="app-name-header"></span></p>
+  </div>
+</div>
+
+<!-- ── Update list ── -->
+<section class="updates">
+  <div class="container">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px;">
+      <p class="subtitle" style="margin:0">All releases are listed below, newest first.</p>
+      <div>
+        <a id="download-latest-btn" href="#" class="btn btn-primary" style="font-size:.9rem;padding:10px 22px;">
+          Download latest
+        </a>
+      </div>
+    </div>
+
+    <!-- 
+      ════════════════════════════════════════════════════════
+      HOW TO ADD A NEW UPDATE
+      ════════════════════════════════════════════════════════
+      1. Copy the block below that starts with <div class="update-entry latest">
+      2. Change "latest" to just "update-entry" on the PREVIOUS entry
+      3. Update: version, release_date, title, and the <li> bullet points
+      4. Also update medistock_version.json with the new version + download_url
+      ════════════════════════════════════════════════════════
+    -->
+
+    <div class="update-list" id="update-list">
+
+      <!-- ── v0.1.0 ─ LATEST ── -->
+      <div class="update-entry latest">
+        <div class="update-meta">
+          <span class="version-badge">v0.1.0</span>
+          <span class="update-date">29 July 2026</span>
+          <span class="update-label-latest">Latest</span>
+        </div>
+        <h3>Initial Release</h3>
+        <ul>
+          <li>Full inventory management with barcode and QR scanning</li>
+          <li>Role-based login — Administrator, Doctor, Nurse, Pharmacy, Healthcare Assistant</li>
+          <li>Dashboard with live stock value, expiry alerts, and usage trends</li>
+          <li>AI Insights, AI Chat Assistant, and smart purchasing recommendations</li>
+          <li>Clinical room audits, stock transfers, and batch tracking</li>
+          <li>Mobile web companion accessible over local Wi-Fi</li>
+          <li>Admin-only Wi-Fi connection manager</li>
+          <li>In-app software update checker with one-click install</li>
+          <li>Backup and restore, session timeout, audit log</li>
+          <li>PDF, Excel, and CSV export for all reports</li>
+        </ul>
+      </div>
+
+      <!-- ── Add new entries above this comment ── -->
+
+    </div>
+
+    <!-- ── Manifest / API info for developers ── -->
+    <div style="margin-top:56px;padding-top:32px;border-top:1px solid var(--color-border);">
+      <h3 style="color:#fff;margin-bottom:8px;">Update manifest (API)</h3>
+      <p style="color:var(--color-muted);margin-bottom:12px;font-size:.92rem;">
+        The desktop app checks this JSON file automatically to detect new versions.
+        The file is served at <code style="color:var(--color-accent)" id="manifest-url-display"></code>
+      </p>
+      <div class="manifest-box" id="manifest-preview">Loading manifest...</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p id="footer-text">&copy; 2026 — All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Apply config
+  document.getElementById("page-title").textContent = "Updates — " + SITE_CONFIG.appName;
+  document.getElementById("nav-logo").textContent = SITE_CONFIG.appName;
+  document.getElementById("app-name-header").textContent = SITE_CONFIG.appName;
+  document.getElementById("download-latest-btn").href = SITE_CONFIG.downloadUrl;
+  document.getElementById("download-latest-btn").textContent = "Download " + SITE_CONFIG.appName + " v" + SITE_CONFIG.currentVersion;
+  document.getElementById("footer-text").innerHTML =
+    "&copy; " + new Date().getFullYear() + " " + SITE_CONFIG.appName + " &mdash; All rights reserved.";
+
+  // Show the manifest URL
+  const manifestUrl = window.location.href.replace("updates.html", "") + "medistock_version.json";
+  document.getElementById("manifest-url-display").textContent = manifestUrl;
+
+  // Load and show live manifest
+  fetch("medistock_version.json?v=" + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById("manifest-preview").textContent = JSON.stringify(data, null, 2);
+    })
+    .catch(() => {
+      document.getElementById("manifest-preview").textContent = "// Manifest not available in this preview.";
+    });
+</script>
+
+</body>
+</html>

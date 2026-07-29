@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1B2C3D4E5F6071829300001 /* MediStockAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301001 /* MediStockAIApp.swift */; };
+		A1B2C3D4E5F6071829300002 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301002 /* AppConfiguration.swift */; };
+		A1B2C3D4E5F6071829300003 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301003 /* Models.swift */; };
+		A1B2C3D4E5F6071829300004 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301004 /* APIClient.swift */; };
+		A1B2C3D4E5F6071829300005 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301005 /* AppViewModel.swift */; };
+		A1B2C3D4E5F6071829300006 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301006 /* RootView.swift */; };
+		A1B2C3D4E5F6071829300007 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301007 /* DashboardView.swift */; };
+		A1B2C3D4E5F6071829300008 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301008 /* InventoryView.swift */; };
+		A1B2C3D4E5F6071829300009 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301009 /* ScanView.swift */; };
+		A1B2C3D4E5F6071829300010 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301010 /* ReportsView.swift */; };
+		A1B2C3D4E5F6071829300011 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301011 /* SettingsView.swift */; };
+		A1B2C3D4E5F6071829300012 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301012 /* LoginView.swift */; };
+		A1B2C3D4E5F6071829300013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301017 /* Assets.xcassets */; };
+		A1B2C3D4E5F6071829300016 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301018 /* LaunchScreen.storyboard */; };
+		A1B2C3D4E5F6071829300014 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301014 /* Foundation.framework */; };
+		A1B2C3D4E5F6071829300015 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301015 /* SwiftUI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A1B2C3D4E5F6071829301001 /* MediStockAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediStockAIApp.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301002 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301003 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301004 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301005 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301006 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301007 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301008 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301009 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301010 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301011 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301012 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301018 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301014 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A1B2C3D4E5F6071829301015 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A1B2C3D4E5F6071829301016 /* MediStockAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediStockAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1B2C3D4E5F6071829302001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D4E5F6071829300014 /* Foundation.framework in Frameworks */,
+				A1B2C3D4E5F6071829300015 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1B2C3D4E5F6071829303001 = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F6071829303002 /* MediStockAIiPhone */,
+				A1B2C3D4E5F6071829303003 /* Frameworks */,
+				A1B2C3D4E5F6071829303004 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F6071829303002 /* MediStockAIiPhone */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F6071829301001 /* MediStockAIApp.swift */,
+				A1B2C3D4E5F6071829301002 /* AppConfiguration.swift */,
+				A1B2C3D4E5F6071829301003 /* Models.swift */,
+				A1B2C3D4E5F6071829301004 /* APIClient.swift */,
+				A1B2C3D4E5F6071829301005 /* AppViewModel.swift */,
+				A1B2C3D4E5F6071829301006 /* RootView.swift */,
+				A1B2C3D4E5F6071829301007 /* DashboardView.swift */,
+				A1B2C3D4E5F6071829301008 /* InventoryView.swift */,
+				A1B2C3D4E5F6071829301009 /* ScanView.swift */,
+				A1B2C3D4E5F6071829301010 /* ReportsView.swift */,
+				A1B2C3D4E5F6071829301011 /* SettingsView.swift */,
+				A1B2C3D4E5F6071829301012 /* LoginView.swift */,
+				A1B2C3D4E5F6071829301013 /* Info.plist */,
+				A1B2C3D4E5F6071829301017 /* Assets.xcassets */,
+				A1B2C3D4E5F6071829301018 /* LaunchScreen.storyboard */,
+			);
+			path = MediStockAIiPhone;
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F6071829303003 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F6071829301014 /* Foundation.framework */,
+				A1B2C3D4E5F6071829301015 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F6071829303004 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F6071829301016 /* MediStockAI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1B2C3D4E5F6071829304001 /* MediStockAI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3D4E5F6071829305001 /* Build configuration list for PBXNativeTarget "MediStockAI" */;
+			buildPhases = (
+				A1B2C3D4E5F6071829306001 /* Sources */,
+				A1B2C3D4E5F6071829302001 /* Frameworks */,
+				A1B2C3D4E5F6071829307001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MediStockAI;
+			productName = MediStockAI;
+			productReference = A1B2C3D4E5F6071829301016 /* MediStockAI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1B2C3D4E5F6071829308001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A1B2C3D4E5F6071829304001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = A1B2C3D4E5F6071829308002 /* Build configuration list for PBXProject "MediStockAI" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1B2C3D4E5F6071829303001;
+			productRefGroup = A1B2C3D4E5F6071829303004 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1B2C3D4E5F6071829304001 /* MediStockAI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B2C3D4E5F6071829307001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D4E5F6071829300013 /* Assets.xcassets in Resources */,
+				A1B2C3D4E5F6071829300016 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1B2C3D4E5F6071829306001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D4E5F6071829300001 /* MediStockAIApp.swift in Sources */,
+				A1B2C3D4E5F6071829300002 /* AppConfiguration.swift in Sources */,
+				A1B2C3D4E5F6071829300003 /* Models.swift in Sources */,
+				A1B2C3D4E5F6071829300004 /* APIClient.swift in Sources */,
+				A1B2C3D4E5F6071829300005 /* AppViewModel.swift in Sources */,
+				A1B2C3D4E5F6071829300006 /* RootView.swift in Sources */,
+				A1B2C3D4E5F6071829300007 /* DashboardView.swift in Sources */,
+				A1B2C3D4E5F6071829300008 /* InventoryView.swift in Sources */,
+				A1B2C3D4E5F6071829300009 /* ScanView.swift in Sources */,
+				A1B2C3D4E5F6071829300010 /* ReportsView.swift in Sources */,
+				A1B2C3D4E5F6071829300011 /* SettingsView.swift in Sources */,
+				A1B2C3D4E5F6071829300012 /* LoginView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A1B2C3D4E5F6071829309001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MediStockAIiPhone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medistock.iphone;
+				PRODUCT_NAME = MediStockAI;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		A1B2C3D4E5F6071829309002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MediStockAIiPhone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medistock.iphone;
+				PRODUCT_NAME = MediStockAI;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1B2C3D4E5F6071829309003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MediStockAIiPhone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medistock.iphone;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A1B2C3D4E5F6071829309004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MediStockAIiPhone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medistock.iphone;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1B2C3D4E5F6071829305001 /* Build configuration list for PBXNativeTarget "MediStockAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D4E5F6071829309001 /* Debug */,
+				A1B2C3D4E5F6071829309002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3D4E5F6071829308002 /* Build configuration list for PBXProject "MediStockAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D4E5F6071829309003 /* Debug */,
+				A1B2C3D4E5F6071829309004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1B2C3D4E5F6071829308001 /* Project object */;
+}
