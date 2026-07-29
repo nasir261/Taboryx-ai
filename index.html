@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Loading...</title>
+  <meta name="description" id="page-desc" content="" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="config.js"></script>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo" id="nav-logo">Loading...</span>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="updates.html">Updates</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#download">Download</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Windows Desktop Application</div>
+    <h1 id="hero-title">Healthcare Inventory<br /><span id="hero-accent">Management System</span></h1>
+    <p id="hero-desc"></p>
+    <a id="hero-download-btn" href="#download" class="btn btn-primary">Download for Windows</a>
+    <a href="updates.html" class="btn btn-outline">View Updates</a>
+  </div>
+</section>
+
+<!-- ── Features ── -->
+<section class="features" id="features">
+  <div class="container">
+    <h2>Everything your clinical team needs</h2>
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="icon">💊</div>
+        <h3>Medicine & Stock Control</h3>
+        <p>Track every item — medicines, consumables, equipment — with full batch and expiry management.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🔔</div>
+        <h3>Smart Notifications</h3>
+        <p>Automatic alerts for low stock, expiring items, overdue audits, and new software updates.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🤖</div>
+        <h3>AI Insights &amp; Chat</h3>
+        <p>Built-in AI assistant for usage forecasting, expiry risk, smart purchasing recommendations, and natural-language queries.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">📱</div>
+        <h3>Mobile Web Companion</h3>
+        <p>Access inventory from any phone or tablet on the same Wi-Fi network — no app install needed.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🏥</div>
+        <h3>Clinical Room Audits</h3>
+        <p>Monthly audit checklists per room, barcode scanning, and automatic compliance reporting.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">📊</div>
+        <h3>Reports &amp; Purchasing</h3>
+        <p>Inventory valuation, usage trends, expiry reports, and AI-powered purchasing recommendations — exportable to PDF, Excel, and CSV.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🔒</div>
+        <h3>Role-Based Security</h3>
+        <p>Separate permission levels for Administrators, Doctors, Nurses, Pharmacy, and Healthcare Assistants.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🌐</div>
+        <h3>Wi-Fi Management</h3>
+        <p>Admin-only local Wi-Fi scanning and connection management built directly into the app.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🔄</div>
+        <h3>Automatic Updates</h3>
+        <p>In-app update checker notifies admins when new versions are available — download and install without leaving the app.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Latest updates preview ── -->
+<section class="updates" id="updates" style="max-width:var(--max-width);margin:0 auto;padding:64px 24px;">
+  <h2>Latest Updates</h2>
+  <p class="subtitle">Recent releases and what changed.</p>
+  <div id="latest-update-preview" class="update-list">
+    <p style="color:var(--color-muted)">Loading release information...</p>
+  </div>
+  <br />
+  <a href="updates.html" class="btn btn-outline" style="margin-left:0">View all updates →</a>
+</section>
+
+<!-- ── Download ── -->
+<section class="download" id="download">
+  <div class="container">
+    <h2>Download</h2>
+    <p id="download-desc">Get the latest version for Windows.</p>
+    <a id="download-main-btn" href="#" class="btn btn-primary">Download for Windows</a>
+    <div class="platform-badges">
+      <span class="platform-badge">✅ Windows 10</span>
+      <span class="platform-badge">✅ Windows 11</span>
+      <span class="platform-badge">🔄 macOS — planned</span>
+      <span class="platform-badge">🔄 Linux — planned</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact" style="padding:64px 24px;text-align:center;">
+  <div class="container">
+    <h2 style="color:#fff;margin-bottom:12px;">Get in touch</h2>
+    <p style="color:var(--color-muted);margin-bottom:20px;">For support, feedback, or feature requests:</p>
+    <a id="contact-email" href="#" class="btn btn-outline" style="margin-left:0">Email Support</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p id="footer-text">&copy; 2026 — All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Apply config to every element in the page
+  document.getElementById("page-title").textContent = SITE_CONFIG.appName + " — " + SITE_CONFIG.appTagline;
+  document.getElementById("page-desc").setAttribute("content", SITE_CONFIG.appDescription);
+  document.getElementById("nav-logo").textContent = SITE_CONFIG.appName;
+  document.getElementById("hero-title").innerHTML =
+    SITE_CONFIG.appName + "<br /><span style='color:var(--color-accent)'>" + SITE_CONFIG.appTagline + "</span>";
+  document.getElementById("hero-desc").textContent = SITE_CONFIG.appDescription;
+  document.getElementById("hero-download-btn").textContent = SITE_CONFIG.downloadLabel;
+  document.getElementById("hero-download-btn").href = SITE_CONFIG.downloadUrl;
+  document.getElementById("download-desc").textContent =
+    "Download " + SITE_CONFIG.appName + " v" + SITE_CONFIG.currentVersion + " for Windows.";
+  document.getElementById("download-main-btn").textContent = SITE_CONFIG.downloadLabel;
+  document.getElementById("download-main-btn").href = SITE_CONFIG.downloadUrl;
+  document.getElementById("contact-email").textContent = "Email: " + SITE_CONFIG.supportEmail;
+  document.getElementById("contact-email").href = "mailto:" + SITE_CONFIG.supportEmail;
+  document.getElementById("footer-text").innerHTML =
+    "&copy; " + new Date().getFullYear() + " " + SITE_CONFIG.appName + " &mdash; All rights reserved.";
+
+  // Load latest update from manifest
+  fetch("medistock_version.json?v=" + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const box = document.getElementById("latest-update-preview");
+      const notes = (data.release_notes || "").split("\n").filter(l => l.trim());
+      const items = notes.map(l => "<li>" + l.replace(/^[-•]\s*/, "") + "</li>").join("");
+      box.innerHTML = `
+        <div class="update-entry latest">
+          <div class="update-meta">
+            <span class="version-badge">v${data.version}</span>
+            <span class="update-date">${data.release_date || ""}</span>
+            <span class="update-label-latest">Latest</span>
+          </div>
+          <h3>${data.title || "Release v" + data.version}</h3>
+          <ul>${items || "<li>See full release notes on the Updates page.</li>"}</ul>
+        </div>`;
+    })
+    .catch(() => {
+      document.getElementById("latest-update-preview").innerHTML =
+        "<p style='color:var(--color-muted)'>Release information unavailable.</p>";
+    });
+</script>
+
+</body>
+</html>
