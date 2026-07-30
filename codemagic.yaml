@@ -1,0 +1,66 @@
+workflows:
+  ios-app-store:
+    name: KidsGames90s — App Store
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+
+    environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.kids.games90s
+      vars:
+        XCODE_PROJECT: KidsGames90s/KidsGames90s.xcodeproj
+        XCODE_SCHEME: KidsGames90s
+        BUNDLE_ID: com.kids.games90s
+        APP_STORE_APPLE_ID: $APP_STORE_APPLE_ID   # set in Codemagic environment variables
+      xcode: latest
+      cocoapods: default
+
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+
+    scripts:
+      - name: Set build number from CI
+        script: |
+          agvtool new-version -all $(($(app-store-connect get-latest-build-number "$APP_STORE_APPLE_ID") + 1))
+        ignore_failure: true
+
+      - name: Build and archive for App Store
+        script: |
+          xcodebuild \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME" \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination "generic/platform=iOS" \
+            -archivePath build/KidsGames90s.xcarchive \
+            archive
+
+      - name: Export IPA
+        script: |
+          xcodebuild \
+            -exportArchive \
+            -archivePath build/KidsGames90s.xcarchive \
+            -exportPath build/ipa \
+            -exportOptionsPlist /usr/local/share/codemagic/ExportOptions/ExportOptions-app-store.plist
+
+    artifacts:
+      - build/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+
+    publishing:
+      app_store_connect:
+        auth: integration   # uses App Store Connect API key added in Codemagic dashboard
+        submit_to_testflight: true
+        beta_groups:
+          - Internal Testers
+      email:
+        recipients:
+          - nasiralimd@gmail.com
+        notify:
+          success: true
+          failure: true
