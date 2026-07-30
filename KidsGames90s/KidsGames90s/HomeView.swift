@@ -6,11 +6,11 @@ struct HomeView: View {
             ZStack {
                 Color.black.ignoresSafeArea()
 
-                VStack(spacing: 18) {
+                VStack(spacing: 22) {
                     Text("🎮 90s Kids Games")
-                        .font(.system(size: 30, weight: .bold, design: .monospaced))
+                        .font(.system(size: 36, weight: .bold, design: .monospaced))
                         .foregroundColor(.yellow)
-                        .padding(.top, 10)
+                        .padding(.top, 14)
 
                     GameMenuButton(title: "🐍  Snake",        color: .green,  destination: AnyView(SnakeGameView()))
                     GameMenuButton(title: "🃏  Memory Match", color: .blue,   destination: AnyView(MemoryMatchView()))
@@ -18,7 +18,7 @@ struct HomeView: View {
                     GameMenuButton(title: "🏓  Pong",         color: .purple, destination: AnyView(PongView()))
                     GameMenuButton(title: "🧱  Breakout",     color: .red,    destination: AnyView(BreakoutView()))
                 }
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 20)
             }
             .navigationBarHidden(true)
         }
@@ -33,13 +33,13 @@ private struct GameMenuButton: View {
     var body: some View {
         NavigationLink(destination: destination) {
             Text(title)
-                .font(.system(size: 26, weight: .bold, design: .monospaced))
+                .font(.system(size: 32, weight: .bold, design: .monospaced))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 22)
+                .padding(.vertical, 28)
                 .background(color)
-                .cornerRadius(18)
-                .shadow(color: color.opacity(0.6), radius: 8, y: 4)
+                .cornerRadius(22)
+                .shadow(color: color.opacity(0.6), radius: 10, y: 5)
         }
         .buttonStyle(.plain)
     }
