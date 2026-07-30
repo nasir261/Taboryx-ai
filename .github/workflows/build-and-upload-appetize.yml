@@ -1,0 +1,86 @@
+name: Build iOS app for Appetize
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'KidsGames90s/**'
+      - '.github/workflows/build-and-upload-appetize.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-upload:
+    runs-on: macos-latest
+    env:
+      PROJECT_PATH: KidsGames90s/KidsGames90s.xcodeproj
+      SCHEME: KidsGames90s
+      APP_BUNDLE_PATH: build/Build/Products/Release-iphonesimulator/KidsGames90s.app
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Select latest Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app
+
+      - name: Build for iOS Simulator (no signing needed)
+        run: |
+          xcodebuild \
+            -project "$PROJECT_PATH" \
+            -scheme "$SCHEME" \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -destination "generic/platform=iOS Simulator" \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Package simulator app
+        run: |
+          if [ ! -d "$APP_BUNDLE_PATH" ]; then
+            echo "Expected app bundle not found at $APP_BUNDLE_PATH"
+            exit 1
+          fi
+          cd "$(dirname "$APP_BUNDLE_PATH")"
+          zip -r KidsGames90s-simulator.zip KidsGames90s.app
+
+      - name: Upload to Appetize
+        id: upload
+        env:
+          APPETIZE_API_TOKEN: ${{ secrets.APPETIZE_API_TOKEN }}
+          APPETIZE_PUBLIC_KEY: ${{ secrets.APPETIZE_PUBLIC_KEY }}
+        run: |
+          if [ -z "$APPETIZE_API_TOKEN" ]; then
+            echo "Missing APPETIZE_API_TOKEN secret"
+            exit 1
+          fi
+
+          ZIP_PATH="build/Build/Products/Release-iphonesimulator/KidsGames90s-simulator.zip"
+          if [ ! -f "$ZIP_PATH" ]; then
+            echo "Missing ZIP artifact: $ZIP_PATH"
+            exit 1
+          fi
+
+          if [ -n "$APPETIZE_PUBLIC_KEY" ]; then
+            RESPONSE=$(curl --fail --silent --show-error \
+              -u "$APPETIZE_API_TOKEN:" \
+              -F "file=@$ZIP_PATH" \
+              "https://api.appetize.io/v1/apps/$APPETIZE_PUBLIC_KEY")
+            PUBLIC_KEY="$APPETIZE_PUBLIC_KEY"
+          else
+            RESPONSE=$(curl --fail --silent --show-error \
+              -u "$APPETIZE_API_TOKEN:" \
+              -F "file=@$ZIP_PATH" \
+              "https://api.appetize.io/v1/apps")
+            PUBLIC_KEY=$(python3 -c "import json,sys; print(json.loads(sys.stdin.read())['publicKey'])" <<< "$RESPONSE")
+          fi
+
+          APP_URL="https://appetize.io/app/$PUBLIC_KEY"
+          echo "Appetize app URL: $APP_URL"
+          echo "app_url=$APP_URL" >> "$GITHUB_OUTPUT"
+
+      - name: Show Appetize URL
+        run: echo "Open ${{ steps.upload.outputs.app_url }}"
