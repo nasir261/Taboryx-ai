@@ -3,8 +3,8 @@ import SwiftUI
 private enum Direction { case up, down, left, right }
 
 struct SnakeGameView: View {
-    private let gridSize = 20
-    private let cellSize: CGFloat = 17
+    private let gridSize = 15
+    private let cellSize: CGFloat = 22
 
     @State private var snake: [CGPoint] = [CGPoint(x: 10, y: 10)]
     @State private var direction: Direction = .right
@@ -21,11 +21,11 @@ struct SnakeGameView: View {
             VStack(spacing: 14) {
                 HStack {
                     Text("🐍 Snake")
-                        .font(.system(size: 28, weight: .bold, design: .monospaced))
+                        .font(.system(size: 22, weight: .bold, design: .monospaced))
                         .foregroundColor(.yellow)
                     Spacer()
                     Text("Score: \(score)")
-                        .font(.system(size: 26, weight: .bold, design: .monospaced))
+                        .font(.system(size: 20, weight: .bold, design: .monospaced))
                         .foregroundColor(.white)
                 }
                 .padding(.horizontal)
@@ -78,34 +78,34 @@ struct SnakeGameView: View {
     }
 
     private var gameOverOverlay: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 14) {
             Text("😵 Game Over!")
-                .font(.system(size: 32, weight: .bold, design: .monospaced))
+                .font(.system(size: 28, weight: .bold, design: .monospaced))
                 .foregroundColor(.red)
             Text("Score: \(score)")
-                .font(.system(size: 26, design: .monospaced))
+                .font(.system(size: 20, design: .monospaced))
                 .foregroundColor(.white)
             Button("Play Again 🔄") { restartGame() }
-                .font(.system(size: 24, weight: .bold))
+                .font(.system(size: 20, weight: .bold))
                 .foregroundColor(.black)
-                .padding(.horizontal, 30)
-                .padding(.vertical, 14)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 10)
                 .background(Color.yellow)
-                .cornerRadius(16)
+                .cornerRadius(12)
         }
-        .padding(24)
+        .padding(20)
         .background(Color.black.opacity(0.75))
-        .cornerRadius(20)
+        .cornerRadius(16)
     }
 
     // MARK: – D-Pad
 
     private var dPad: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 6) {
             arrowButton(.up,    icon: "arrow.up")
-            HStack(spacing: 8) {
+            HStack(spacing: 6) {
                 arrowButton(.left,  icon: "arrow.left")
-                Color.clear.frame(width: 88, height: 88)
+                Color.clear.frame(width: 68, height: 68)
                 arrowButton(.right, icon: "arrow.right")
             }
             arrowButton(.down,  icon: "arrow.down")
@@ -115,11 +115,11 @@ struct SnakeGameView: View {
     private func arrowButton(_ dir: Direction, icon: String) -> some View {
         Button { changeDirection(dir) } label: {
             Image(systemName: icon)
-                .font(.system(size: 36, weight: .bold))
-                .frame(width: 88, height: 88)
+                .font(.system(size: 28, weight: .bold))
+                .frame(width: 68, height: 68)
                 .background(Color.green.opacity(0.85))
                 .foregroundColor(.white)
-                .cornerRadius(18)
+                .cornerRadius(12)
         }
         .buttonStyle(.plain)
     }
@@ -200,12 +200,12 @@ struct SnakeGameView: View {
 
 private func startButton(label: String, action: @escaping () -> Void) -> some View {
     Button(label) { action() }
-        .font(.system(size: 26, weight: .bold))
+        .font(.system(size: 22, weight: .bold))
         .foregroundColor(.black)
-        .padding(.horizontal, 34)
-        .padding(.vertical, 18)
+        .padding(.horizontal, 28)
+        .padding(.vertical, 14)
         .background(Color.green)
-        .cornerRadius(20)
+        .cornerRadius(16)
 }
 
 #Preview {
